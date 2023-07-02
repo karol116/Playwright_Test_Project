@@ -4,18 +4,25 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.pages.AccountPage;
+import com.qa.opencart.pages.LoginPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import playwrightSessions.PageFactory;
 
 public class LoginTestSuite extends BaseTest {
 
-    Playwright playwright;
-    Browser browser;
+    LoginPage loginPage;
+    AccountPage accountPage;
+
+    String searchedProduct = "iphone";
 
     @Test
     public void loginAsConsumer() {
-        
+        loginPage = homePage.goToLoginPage();
+        accountPage = loginPage.logInAsCustomer();
+        homePage = accountPage.returnToHomePage();
+
+        homePage.searchProduct(searchedProduct);
     }
 
 
