@@ -7,11 +7,12 @@ public class AccountPage extends AbstractPage {
 
     AccountPage(Page page) {
         super(page);
+        this.page = page;
     }
 
-    String returnToHomePageButton = "//*[@class = 'fa fa-home']";
+    String returnToHomePageButton = "//*[@class='fa fa-home']/..";
 
-    public HomePage returnToHomePage(){
+    public HomePage returnToHomePage() {
         page.click(returnToHomePageButton);
         return new HomePage(page);
     }

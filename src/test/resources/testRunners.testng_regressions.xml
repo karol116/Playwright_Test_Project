@@ -20,7 +20,8 @@
     <test name="Open Cart Login Page Test_safari">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="com.qa.opencart.tests.LoginTestSuite" />
+            <class name="com.qa.opencart.tests.LoginTestSuite"/>
+
         </classes>
     </test>
 
