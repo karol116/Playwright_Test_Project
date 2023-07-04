@@ -17,6 +17,8 @@ public class AbstractPage {
     private String myAccountButton = "//*[@title='My Account']";
     private String dropdownList = "//*[@title='My Account']/../ul/li";
     private String logoutButton = "//ul/li/a[text()='Logout']";
+    private String cartButton = "#cart-total";
+    private String viewCartIcon = "//*[text()=' View Cart']";
 
     public HomePage returnToHomePage() {
         page.click(returnToHomePageButton);
@@ -42,5 +44,11 @@ public class AbstractPage {
                 return true;
         }
         return false;
+    }
+
+    public ShoppingCartPage openShoppingCart(){
+        page.click(cartButton);
+        page.click(viewCartIcon);
+        return new ShoppingCartPage(page);
     }
 }
